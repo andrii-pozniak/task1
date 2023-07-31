@@ -4,9 +4,9 @@ function App() {
   return (
     <div className="App">
       
-        <p>
+        <h2>
           TASK1
-        </p>
+        </h2>
         
       
     </div>
