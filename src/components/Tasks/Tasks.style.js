@@ -29,12 +29,14 @@ padding: 0 10px;
 `;
 export const Item = styled.p`
 margin: 0;
-padding: 20px;
+padding: 10px;
 ;
 `;
 export const ContainerItem = styled.div`
 display: grid;
-  grid-template-columns: repeat(5, 1fr) 130px;
+  grid-template-columns: repeat(5, 1fr) 45px 45px 45px;
   margin-bottom: 20px;
+  align-items: center;
+
 
 `;

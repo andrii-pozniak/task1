@@ -1,9 +1,11 @@
 import React, { useState } from "react";
 import { nanoid } from 'nanoid';
-import { Tasks } from './components/Tasks/Tasks';
+import { Tasks } from 'components/Tasks/Tasks';
 import './App.css';
-import { ModalSample } from "../src/components/Modal/Modal";
+import { ModalSample } from "components/Modal/Modal";
 import { CategoryForm } from 'components/CategoryForm/CategoryForm';
+import { ChangeForm } from "components/ChangeTask/ChangeForm";
+import { Container } from "./App.Style";
 
 function App() {
   const [tasks, setTasks] = useState([
@@ -23,49 +25,76 @@ function App() {
     }
   ]);
 
- const[showModal, setShowModal] = useState()
- const[showModalAdd, setShowModalAdd] = useState()
+  const [showModal, setShowModal] = useState()
+  const [showModalAdd, setShowModalAdd] = useState()
+  const [showModalChange, setShowModalChange] = useState(false);
+  const [selectedTaskId, setSelectedTaskId] = useState(null);
 
- const toggleModal = () => {
-  setShowModal(!showModal);
-  
-  document.body.style.overflow = "";
-};
-const onChangeModal = () => {
-  toggleModal();
-};
+  const toggleModal = () => {
+    setShowModal(!showModal);
 
-const toggleModalAdd = () => {
-  setShowModalAdd(!showModalAdd);
-  setShowModal(false);
-  document.body.style.overflow = "";
-};
+    document.body.style.overflow = "";
+  };
+  const onChangeModal = () => {
+    toggleModal();
+  };
 
-const handleAddTask = (categoryData) => {
-  setTasks((prevTasks) => [...prevTasks, {id: nanoid(4), ...categoryData}]);
-};
+  const toggleModalAdd = () => {
+    setShowModalAdd(!showModalAdd);
+    setShowModal(false);
+    document.body.style.overflow = "";
+  };
+  const toggleModalChange = () => {
+    setShowModalChange(!showModalChange);
+    setShowModal(false);
+    document.body.style.overflow = "";
+  };
 
-const handleDeleteTask = (taskId) => {
-  setTasks((prevTasks) => prevTasks.filter(task => task.id !== taskId));
-};
+  const handleAddTask = (categoryData) => {
+    setTasks((prevTasks) => [...prevTasks, { id: nanoid(4), ...categoryData }]);
+  };
+  const handleOpenChangeModal = (taskId) => {
+    setSelectedTaskId(taskId);
+    toggleModalChange();
+  };
+  const handleChangeTask = (changeData) => {
+    setTasks((prevTasks) =>
+      prevTasks.map((task) =>
+        task.id === selectedTaskId ? { ...task, content: changeData.content, dataStart: changeData.dataStart, dataEnd: changeData.dataEnd } : task
+      )
+    );
+    toggleModalChange();
+  };
 
- console.log("task", tasks)
+  const handleDeleteTask = (taskId) => {
+    setTasks((prevTasks) => prevTasks.filter(task => task.id !== taskId));
+  };
+
+  console.log("task", tasks)
   return (
-    <div>
-      <Tasks tasks={tasks} onDeleteTask={handleDeleteTask}/>
-      <button type="button" onClick={onChangeModal}>
-            Create note
-          </button>
+    <Container>
+      <Tasks tasks={tasks} onDeleteTask={handleDeleteTask} onOpenChangeModal={handleOpenChangeModal} />
+      <button type="button" onClick={onChangeModal} style={{ marginLeft: 'auto' }}>
+        Create note
+      </button>
       {showModal && (
         <ModalSample toggleModal={toggleModal}>
           <CategoryForm onChangeModalAdd={toggleModalAdd}
-          onAddTask={handleAddTask}
+            onAddTask={handleAddTask}
           />
-          
+
         </ModalSample>
       )}
-      
-    </div>
+      {showModalChange && (
+        <ModalSample toggleModalChange={toggleModalChange}>
+          <ChangeForm onChangeModalChange={toggleModalChange}
+            onChangeTask={handleChangeTask}
+          />
+
+        </ModalSample>
+      )}
+
+    </Container>
   );
 }
 
