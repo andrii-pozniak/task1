@@ -1,5 +1,37 @@
 import styled from "styled-components";
+import ShoppingCartIcon from '@mui/icons-material/ShoppingCart';
+import EmojiObjectsIcon from '@mui/icons-material/EmojiObjects';
+import FormatQuoteIcon from '@mui/icons-material/FormatQuote';
+import PsychologyIcon from '@mui/icons-material/Psychology';
 
+export const ShoppingCartIconStyle = styled(ShoppingCartIcon)`
+width: 48px;
+margin-right: 5px;
+border-radius: ${p => p.theme.radii.round};
+background: ${p => p.theme.colors.text};
+color: ${p => p.theme.colors.white};
+`;
+export const EmojiObjectsIconStyle = styled(EmojiObjectsIcon)`
+width: 48px;
+margin-right: 5px;
+border-radius: ${p => p.theme.radii.round};
+background: ${p => p.theme.colors.text};
+color: ${p => p.theme.colors.white};
+`;
+export const FormatQuoteIconStyle = styled(FormatQuoteIcon)`
+width: 48px;
+margin-right: 5px;
+border-radius: ${p => p.theme.radii.round};
+background: ${p => p.theme.colors.text};
+color: ${p => p.theme.colors.white};
+`;
+export const PsychologyIconStyle = styled(PsychologyIcon)`
+width: 48px;
+margin-right: 5px;
+border-radius: ${p => p.theme.radii.round};
+background: ${p => p.theme.colors.text};
+color: ${p => p.theme.colors.white};
+`;
 export const Container = styled.div`
 max-width: 1170px;
 margin-right: auto;
@@ -30,13 +62,20 @@ padding: 0 10px;
 export const Item = styled.p`
 margin: 0;
 padding: 10px;
-;
+text-overflow: ellipsis;
+white-space: nowrap;
+  overflow: hidden;
 `;
 export const ContainerItem = styled.div`
 display: grid;
   grid-template-columns: repeat(5, 1fr) 45px 45px 45px;
-  margin-bottom: 20px;
+  margin-bottom: 10px;
   align-items: center;
-
-
+`;
+export const ContainerTasks = styled.div`
+display: grid;
+  grid-template-columns: repeat(3, 1fr) ;
+  margin-bottom: 10px;
+ 
+  align-items: center;
 `;
