@@ -6,24 +6,10 @@ import { ModalSample } from "components/Modal/Modal";
 import { CategoryForm } from 'components/CategoryForm/CategoryForm';
 import { ChangeForm } from "components/ChangeTask/ChangeForm";
 import { Container } from "./App.Style";
+import initialData from '../src/initialData.json'
 
 function App() {
-  const [tasks, setTasks] = useState([
-    {
-      id: "1",
-      name: "Books",
-      createData: "April, 24, 21",
-      categoryName: "Task",
-      content: "The Lean Starup"
-    },
-    {
-      id: '2',
-      name: "Shopping List",
-      createData: "April, 27, 21",
-      categoryName: "Task",
-      content: "Tomatoes, bread"
-    }
-  ]);
+  const [tasks, setTasks] = useState(initialData);
 
   const [showModal, setShowModal] = useState()
   const [showModalAdd, setShowModalAdd] = useState()
