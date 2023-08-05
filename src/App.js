@@ -11,7 +11,6 @@ import initialData from "../src/initialData.json";
 
 function App() {
   const [tasks, setTasks] = useState(initialData);
-
   const [showModal, setShowModal] = useState();
   const [showModalAdd, setShowModalAdd] = useState();
   const [showModalChange, setShowModalChange] = useState(false);
@@ -76,7 +75,6 @@ function App() {
     }
   };
 
-  console.log("archivedTasks", archivedTasks);
   return (
     <Container>
       <Tasks

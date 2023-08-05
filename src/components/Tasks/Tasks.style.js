@@ -78,7 +78,6 @@ export const ContainerItem = styled.div`
   margin-bottom: 10px;
   background: grey;
   color: ${(p) => p.theme.colors.white};
-  
 `;
 export const ContainerTasks = styled.div`
   display: grid;
@@ -86,5 +85,4 @@ export const ContainerTasks = styled.div`
   margin-bottom: 10px;
   color: ${(p) => p.theme.colors.white};
   background: grey;
-  
 `;

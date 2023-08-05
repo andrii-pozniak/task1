@@ -22,9 +22,7 @@ export const ArchivedTasks = ({ tasks, archivedTasks }) => {
   const categories = ["Task", "Idea", "Quot", "Random Thought"];
   return (
     <>
-      <ContainerTasks
-        style={{ marginTop: "50px", borderRadius: "5px" }}
-      >
+      <ContainerTasks style={{ marginTop: "50px", borderRadius: "5px" }}>
         <Header>Name</Header>
         <Header>Active</Header>
         <Header>Archived</Header>

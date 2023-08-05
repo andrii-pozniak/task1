@@ -22,7 +22,7 @@ export const TaskItem = ({
   categoryName,
   onDelete,
   onOpenChangeModal,
-  onArchive
+  onArchive,
 }) => {
   const handleDeleteClick = () => {
     onDelete(id);

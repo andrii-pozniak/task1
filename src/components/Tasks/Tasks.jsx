@@ -1,7 +1,7 @@
 import React from "react";
 import DeleteIcon from "@mui/icons-material/Delete";
 import AssignmentReturnedIcon from "@mui/icons-material/AssignmentReturned";
-import { ContainerItem, Item, Header } from "./Tasks.style";
+import { ContainerItem, Header } from "./Tasks.style";
 import { TaskItem } from "./TaskItem";
 
 export const Tasks = ({
@@ -43,7 +43,6 @@ export const Tasks = ({
           onArchive={onArchiveTask}
         />
       ))}
-     
     </>
   );
 };
