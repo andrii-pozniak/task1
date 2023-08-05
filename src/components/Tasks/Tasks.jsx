@@ -1,7 +1,7 @@
 import React from "react";
 import DeleteIcon from "@mui/icons-material/Delete";
 import AssignmentReturnedIcon from "@mui/icons-material/AssignmentReturned";
-import { ContainerItem, Item } from "./Tasks.style";
+import { ContainerItem, Item, Header } from "./Tasks.style";
 import { TaskItem } from "./TaskItem";
 
 export const Tasks = ({
@@ -12,20 +12,20 @@ export const Tasks = ({
 }) => {
   return (
     <>
-      <ContainerItem style={{ background: " grey", borderRadius: "5px" }}>
-        <Item>Name</Item>
-        <Item>Created</Item>
-        <Item>Category</Item>
-        <Item>Content</Item>
-        <Item>Dates</Item>
-        <Item></Item>
-        <Item>
+      <ContainerItem style={{ borderRadius: "5px" }}>
+        <Header>Name</Header>
+        <Header>Created</Header>
+        <Header>Category</Header>
+        <Header>Content</Header>
+        <Header>Dates</Header>
+        <Header></Header>
+        <Header>
           {" "}
           <AssignmentReturnedIcon style={{ color: "white" }} />
-        </Item>
-        <Item>
+        </Header>
+        <Header>
           <DeleteIcon style={{ fill: "white" }} />
-        </Item>
+        </Header>
       </ContainerItem>
 
       {tasks?.map((item) => (

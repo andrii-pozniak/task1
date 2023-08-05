@@ -2,6 +2,7 @@ import React from "react";
 import {
   ContainerTasks,
   Item,
+  Header,
   ShoppingCartIconStyle,
   EmojiObjectsIconStyle,
   FormatQuoteIconStyle,
@@ -22,11 +23,11 @@ export const ArchivedTasks = ({ tasks, archivedTasks }) => {
   return (
     <>
       <ContainerTasks
-        style={{ background: "grey", borderRadius: "5px", marginTop: "50px" }}
+        style={{ marginTop: "50px", borderRadius: "5px" }}
       >
-        <Item>Name</Item>
-        <Item>Active</Item>
-        <Item>Archived</Item>
+        <Header>Name</Header>
+        <Header>Active</Header>
+        <Header>Archived</Header>
       </ContainerTasks>
       {categories.map((category) => {
         const activeCount = countTasksByCategory(category).active;
